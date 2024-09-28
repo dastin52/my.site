@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>С Днем Рождения, Лола!</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f8ff;
+            font-family: Arial, sans-serif;
+            position: relative;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-size: 3em;
+            color: #ff69b4;
+        }
+
+        #runawayButton {
+            padding: 10px 20px;
+            font-size: 1.5em;
+            color: white;
+            background-color: #ff4500;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            position: absolute; /* Это позволяет кнопке перемещаться */
+            left: 50%; /* Начальная позиция по горизонтали */
+            top: 50%;  /* Начальная позиция по вертикали */
+            transform: translate(-50%, -50%); /* Центрирование по середине экрана */
+        }
+    </style>
+</head>
+<body>
+
+    <h1>С Днем Рождения, Лола!</h1>
+    <button id="runawayButton">Спасибо</button>
+
+    <script>
+        const button = document.getElementById('runawayButton');
+        let windowWidth = window.innerWidth;
+        let windowHeight = window.innerHeight;
+
+        button.addEventListener('mouseover', () => {
+            const randomX = Math.random() * (windowWidth - button.clientWidth);
+            const randomY = Math.random() * (windowHeight - button.clientHeight);
+            button.style.left = ${randomX}px;
+            button.style.top = ${randomY}px;
+        });
+
+        // Обновляем размеры окна, чтобы кнопка правильно двигалась
+        window.addEventListener('resize', () => {
+            windowWidth = window.innerWidth;
+            windowHeight = window.innerHeight;
+        });
+    </script>
+
+</body>
+</html>
